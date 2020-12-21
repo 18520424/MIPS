@@ -1,0 +1,1324 @@
+Analysis & Synthesis report for MIPS
+Mon Dec 21 14:49:28 2020
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Registers Packed Into Inferred Megafunctions
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for DataPath:data|DMem:mem|altsyncram:mem_rtl_0|altsyncram_ikd1:auto_generated
+ 15. Parameter Settings for Inferred Entity Instance: DataPath:data|DMem:mem|altsyncram:mem_rtl_0
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Dec 21 14:49:28 2020           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; MIPS                                            ;
+; Top-level Entity Name              ; MIPS                                            ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 781                                             ;
+;     Total combinational functions  ; 557                                             ;
+;     Dedicated logic registers      ; 286                                             ;
+; Total registers                    ; 286                                             ;
+; Total pins                         ; 237                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 1,024                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; MIPS               ; MIPS               ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                     ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------+---------+
+; MIPS.v                           ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/MIPS.v                                           ;         ;
+; DataPath.v                       ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/DataPath.v                                       ;         ;
+; DMem.v                           ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/DMem.v                                           ;         ;
+; ControlUnit.v                    ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/ControlUnit.v                                    ;         ;
+; Mux2_1_5bit.v                    ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/Mux2_1_5bit.v                                    ;         ;
+; Mux2_1_32bit.v                   ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/Mux2_1_32bit.v                                   ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/ALU.v                                            ;         ;
+; RegFile.v                        ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/RegFile.v                                        ;         ;
+; SignEx.v                         ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/SignEx.v                                         ;         ;
+; PC.v                             ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/PC.v                                             ;         ;
+; Shift2.v                         ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/Shift2.v                                         ;         ;
+; Add32bit.v                       ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/Add32bit.v                                       ;         ;
+; AddPC.v                          ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/AddPC.v                                          ;         ;
+; IMEM.v                           ; yes             ; User Verilog HDL File        ; E:/HDL/Lab5/TH5/IMEM.v                                           ;         ;
+; binary.txt                       ; yes             ; Auto-Found File              ; E:/HDL/Lab5/TH5/binary.txt                                       ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; e:/quastus/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; e:/quastus/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; e:/quastus/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; e:/quastus/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; e:/quastus/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; e:/quastus/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; e:/quastus/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; e:/quastus/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; e:/quastus/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_ikd1.tdf           ; yes             ; Auto-Generated Megafunction  ; E:/HDL/Lab5/TH5/db/altsyncram_ikd1.tdf                           ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 781   ;
+;                                             ;       ;
+; Total combinational functions               ; 557   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 289   ;
+;     -- 3 input functions                    ; 211   ;
+;     -- <=2 input functions                  ; 57    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 467   ;
+;     -- arithmetic mode                      ; 90    ;
+;                                             ;       ;
+; Total registers                             ; 286   ;
+;     -- Dedicated logic registers            ; 286   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 237   ;
+; Total memory bits                           ; 1024  ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; Clk   ;
+; Maximum fan-out                             ; 318   ;
+; Total fan-out                               ; 3334  ;
+; Average fan-out                             ; 3.00  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                        ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                              ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
+; |MIPS                                        ; 557 (0)           ; 286 (0)      ; 1024        ; 0            ; 0       ; 0         ; 237  ; 0            ; |MIPS                                                                            ; work         ;
+;    |ControlUnit:controller|                  ; 17 (17)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|ControlUnit:controller                                                     ; work         ;
+;    |DataPath:data|                           ; 540 (13)          ; 286 (0)      ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data                                                              ; work         ;
+;       |ALU:alu|                              ; 129 (129)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data|ALU:alu                                                      ; work         ;
+;       |AddPC:add1|                           ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data|AddPC:add1                                                   ; work         ;
+;       |DMem:mem|                             ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data|DMem:mem                                                     ; work         ;
+;          |altsyncram:mem_rtl_0|              ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data|DMem:mem|altsyncram:mem_rtl_0                                ; work         ;
+;             |altsyncram_ikd1:auto_generated| ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data|DMem:mem|altsyncram:mem_rtl_0|altsyncram_ikd1:auto_generated ; work         ;
+;       |IMEM:im|                              ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data|IMEM:im                                                      ; work         ;
+;       |Mux2_1_32bit:mux2|                    ; 47 (47)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data|Mux2_1_32bit:mux2                                            ; work         ;
+;       |Mux2_1_32bit:mux3|                    ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data|Mux2_1_32bit:mux3                                            ; work         ;
+;       |Mux2_1_5bit:mux1|                     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data|Mux2_1_5bit:mux1                                             ; work         ;
+;       |PC:pc1|                               ; 30 (30)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data|PC:pc1                                                       ; work         ;
+;       |RegFile:REGF|                         ; 236 (236)         ; 256 (256)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:data|RegFile:REGF                                                 ; work         ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                          ;
++---------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                  ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++---------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; DataPath:data|DMem:mem|altsyncram:mem_rtl_0|altsyncram_ikd1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; None ;
++---------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                             ;
++----------------------------------------------------+-----------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal               ; Free of Timing Hazards ;
++----------------------------------------------------+-----------------------------------+------------------------+
+; ControlUnit:controller|ALUControl[0]               ; ControlUnit:controller|Selector10 ; yes                    ;
+; ControlUnit:controller|ALUControl[1]               ; ControlUnit:controller|Selector10 ; yes                    ;
+; ControlUnit:controller|ALUControl[2]               ; ControlUnit:controller|Selector10 ; yes                    ;
+; Number of user-specified and inferred latches = 3  ;                                   ;                        ;
++----------------------------------------------------+-----------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; DataPath:data|PC:pc1|PC[1]              ; Merged with DataPath:data|PC:pc1|PC[0] ;
+; DataPath:data|PC:pc1|PC[0]              ; Stuck at GND due to stuck port data_in ;
+; DataPath:data|RegFile:REGF|file~128     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~129     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~130     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~131     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~132     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~133     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~134     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~135     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~136     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~137     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~138     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~139     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~140     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~141     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~142     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~143     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~144     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~145     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~146     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~147     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~148     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~149     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~150     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~151     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~152     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~153     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~154     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~155     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~156     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~157     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~158     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~159     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~160     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~161     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~162     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~163     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~164     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~165     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~166     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~167     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~168     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~169     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~170     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~171     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~172     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~173     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~174     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~175     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~176     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~177     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~178     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~179     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~180     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~181     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~182     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~183     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~184     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~185     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~186     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~187     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~188     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~189     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~190     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~191     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~192     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~193     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~194     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~195     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~196     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~197     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~198     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~199     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~200     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~201     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~202     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~203     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~204     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~205     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~206     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~207     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~208     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~209     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~210     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~211     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~212     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~213     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~214     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~215     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~216     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~217     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~218     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~219     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~220     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~221     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~222     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~223     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~224     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~225     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~226     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~227     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~228     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~229     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~230     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~231     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~232     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~233     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~234     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~235     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~236     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~237     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~238     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~239     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~240     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~241     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~242     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~243     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~244     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~245     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~246     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~247     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~248     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~249     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~250     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~251     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~252     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~253     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~254     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~255     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~384     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~385     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~386     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~387     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~388     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~389     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~390     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~391     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~392     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~393     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~394     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~395     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~396     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~397     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~398     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~399     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~400     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~401     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~402     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~403     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~404     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~405     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~406     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~407     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~408     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~409     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~410     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~411     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~412     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~413     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~414     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~415     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~416     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~417     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~418     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~419     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~420     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~421     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~422     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~423     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~424     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~425     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~426     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~427     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~428     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~429     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~430     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~431     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~432     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~433     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~434     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~435     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~436     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~437     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~438     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~439     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~440     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~441     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~442     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~443     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~444     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~445     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~446     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~447     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~448     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~449     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~450     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~451     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~452     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~453     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~454     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~455     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~456     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~457     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~458     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~459     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~460     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~461     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~462     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~463     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~464     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~465     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~466     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~467     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~468     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~469     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~470     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~471     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~472     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~473     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~474     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~475     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~476     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~477     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~478     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~479     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~480     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~481     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~482     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~483     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~484     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~485     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~486     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~487     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~488     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~489     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~490     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~491     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~492     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~493     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~494     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~495     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~496     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~497     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~498     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~499     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~500     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~501     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~502     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~503     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~504     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~505     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~506     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~507     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~508     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~509     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~510     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~511     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~512     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~513     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~514     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~515     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~516     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~517     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~518     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~519     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~520     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~521     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~522     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~523     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~524     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~525     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~526     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~527     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~528     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~529     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~530     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~531     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~532     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~533     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~534     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~535     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~536     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~537     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~538     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~539     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~540     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~541     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~542     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~543     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~544     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~545     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~546     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~547     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~548     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~549     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~550     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~551     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~552     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~553     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~554     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~555     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~556     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~557     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~558     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~559     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~560     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~561     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~562     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~563     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~564     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~565     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~566     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~567     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~568     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~569     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~570     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~571     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~572     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~573     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~574     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~575     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~576     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~577     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~578     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~579     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~580     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~581     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~582     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~583     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~584     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~585     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~586     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~587     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~588     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~589     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~590     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~591     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~592     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~593     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~594     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~595     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~596     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~597     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~598     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~599     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~600     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~601     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~602     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~603     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~604     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~605     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~606     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~607     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~608     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~609     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~610     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~611     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~612     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~613     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~614     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~615     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~616     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~617     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~618     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~619     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~620     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~621     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~622     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~623     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~624     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~625     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~626     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~627     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~628     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~629     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~630     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~631     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~632     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~633     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~634     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~635     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~636     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~637     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~638     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~639     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~640     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~641     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~642     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~643     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~644     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~645     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~646     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~647     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~648     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~649     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~650     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~651     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~652     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~653     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~654     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~655     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~656     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~657     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~658     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~659     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~660     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~661     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~662     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~663     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~664     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~665     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~666     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~667     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~668     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~669     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~670     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~671     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~672     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~673     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~674     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~675     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~676     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~677     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~678     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~679     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~680     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~681     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~682     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~683     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~684     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~685     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~686     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~687     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~688     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~689     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~690     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~691     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~692     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~693     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~694     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~695     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~696     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~697     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~698     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~699     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~700     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~701     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~702     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~703     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~704     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~705     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~706     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~707     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~708     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~709     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~710     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~711     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~712     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~713     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~714     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~715     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~716     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~717     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~718     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~719     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~720     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~721     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~722     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~723     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~724     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~725     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~726     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~727     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~728     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~729     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~730     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~731     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~732     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~733     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~734     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~735     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~736     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~737     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~738     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~739     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~740     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~741     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~742     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~743     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~744     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~745     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~746     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~747     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~748     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~749     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~750     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~751     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~752     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~753     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~754     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~755     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~756     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~757     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~758     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~759     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~760     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~761     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~762     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~763     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~764     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~765     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~766     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~767     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~768     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~769     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~770     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~771     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~772     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~773     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~774     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~775     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~776     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~777     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~778     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~779     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~780     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~781     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~782     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~783     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~784     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~785     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~786     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~787     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~788     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~789     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~790     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~791     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~792     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~793     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~794     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~795     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~796     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~797     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~798     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~799     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~800     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~801     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~802     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~803     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~804     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~805     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~806     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~807     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~808     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~809     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~810     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~811     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~812     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~813     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~814     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~815     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~816     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~817     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~818     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~819     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~820     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~821     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~822     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~823     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~824     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~825     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~826     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~827     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~828     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~829     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~830     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~831     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~832     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~833     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~834     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~835     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~836     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~837     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~838     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~839     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~840     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~841     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~842     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~843     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~844     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~845     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~846     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~847     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~848     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~849     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~850     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~851     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~852     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~853     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~854     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~855     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~856     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~857     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~858     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~859     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~860     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~861     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~862     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~863     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~864     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~865     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~866     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~867     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~868     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~869     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~870     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~871     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~872     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~873     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~874     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~875     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~876     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~877     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~878     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~879     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~880     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~881     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~882     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~883     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~884     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~885     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~886     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~887     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~888     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~889     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~890     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~891     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~892     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~893     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~894     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~895     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~896     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~897     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~898     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~899     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~900     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~901     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~902     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~903     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~904     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~905     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~906     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~907     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~908     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~909     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~910     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~911     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~912     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~913     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~914     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~915     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~916     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~917     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~918     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~919     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~920     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~921     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~922     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~923     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~924     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~925     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~926     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~927     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~928     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~929     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~930     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~931     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~932     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~933     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~934     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~935     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~936     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~937     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~938     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~939     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~940     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~941     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~942     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~943     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~944     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~945     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~946     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~947     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~948     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~949     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~950     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~951     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~952     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~953     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~954     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~955     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~956     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~957     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~958     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~959     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~960     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~961     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~962     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~963     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~964     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~965     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~966     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~967     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~968     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~969     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~970     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~971     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~972     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~973     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~974     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~975     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~976     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~977     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~978     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~979     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~980     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~981     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~982     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~983     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~984     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~985     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~986     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~987     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~988     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~989     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~990     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~991     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~992     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~993     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~994     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~995     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~996     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~997     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~998     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~999     ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1000    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1001    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1002    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1003    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1004    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1005    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1006    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1007    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1008    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1009    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1010    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1011    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1012    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1013    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1014    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1015    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1016    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1017    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1018    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1019    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1020    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1021    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1022    ; Lost fanout                            ;
+; DataPath:data|RegFile:REGF|file~1023    ; Lost fanout                            ;
+; Total Number of Removed Registers = 770 ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 286   ;
+; Number of registers using Synchronous Clear  ; 30    ;
+; Number of registers using Synchronous Load   ; 30    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 256   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                              ;
++---------------------------------+----------------------------------+------+
+; Register Name                   ; Megafunction                     ; Type ;
++---------------------------------+----------------------------------+------+
+; DataPath:data|DMem:mem|O[0..31] ; DataPath:data|DMem:mem|mem_rtl_0 ; RAM  ;
++---------------------------------+----------------------------------+------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |MIPS|DataPath:data|PC:pc1|PC[13] ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |MIPS|DataPath:data|ALU:alu|Add1  ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; No         ; |MIPS|DataPath:data|ALU:alu|Mux9  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Source assignments for DataPath:data|DMem:mem|altsyncram:mem_rtl_0|altsyncram_ikd1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------+
+; Assignment                      ; Value              ; From ; To                                  ;
++---------------------------------+--------------------+------+-------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                   ;
++---------------------------------+--------------------+------+-------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataPath:data|DMem:mem|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------+----------------------------------+
+; Parameter Name                     ; Value                ; Type                             ;
++------------------------------------+----------------------+----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                          ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                   ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                          ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                          ;
+; WIDTH_A                            ; 32                   ; Untyped                          ;
+; WIDTHAD_A                          ; 5                    ; Untyped                          ;
+; NUMWORDS_A                         ; 32                   ; Untyped                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                          ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                          ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                          ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                          ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                          ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                          ;
+; WIDTH_B                            ; 32                   ; Untyped                          ;
+; WIDTHAD_B                          ; 5                    ; Untyped                          ;
+; NUMWORDS_B                         ; 32                   ; Untyped                          ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                          ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                          ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                          ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                          ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                          ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                          ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                          ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                          ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                          ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                          ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                          ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                          ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                          ;
+; BYTE_SIZE                          ; 8                    ; Untyped                          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                          ;
+; INIT_FILE                          ; UNUSED               ; Untyped                          ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                          ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                          ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                          ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                          ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                          ;
+; CBXI_PARAMETER                     ; altsyncram_ikd1      ; Untyped                          ;
++------------------------------------+----------------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                        ;
++-------------------------------------------+---------------------------------------------+
+; Name                                      ; Value                                       ;
++-------------------------------------------+---------------------------------------------+
+; Number of entity instances                ; 1                                           ;
+; Entity Instance                           ; DataPath:data|DMem:mem|altsyncram:mem_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                   ;
+;     -- WIDTH_A                            ; 32                                          ;
+;     -- NUMWORDS_A                         ; 32                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                ;
+;     -- WIDTH_B                            ; 32                                          ;
+;     -- NUMWORDS_B                         ; 32                                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                      ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                        ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                   ;
++-------------------------------------------+---------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Dec 21 14:49:25 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS -c MIPS
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file mips.v
+    Info (12023): Found entity 1: MIPS
+Info (12021): Found 1 design units, including 1 entities, in source file datapath.v
+    Info (12023): Found entity 1: DataPath
+Info (12021): Found 1 design units, including 1 entities, in source file dmem.v
+    Info (12023): Found entity 1: DMem
+Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
+    Info (12023): Found entity 1: ControlUnit
+Info (12021): Found 1 design units, including 1 entities, in source file mux2_1_5bit.v
+    Info (12023): Found entity 1: Mux2_1_5bit
+Info (12021): Found 1 design units, including 1 entities, in source file mux2_1_32bit.v
+    Info (12023): Found entity 1: Mux2_1_32bit
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: ALU
+Info (12021): Found 1 design units, including 1 entities, in source file regfile.v
+    Info (12023): Found entity 1: RegFile
+Info (12021): Found 1 design units, including 1 entities, in source file signex.v
+    Info (12023): Found entity 1: SignEx
+Info (12021): Found 1 design units, including 1 entities, in source file pc.v
+    Info (12023): Found entity 1: PC
+Info (12021): Found 1 design units, including 1 entities, in source file shift2.v
+    Info (12023): Found entity 1: Shift2
+Info (12021): Found 1 design units, including 1 entities, in source file add32bit.v
+    Info (12023): Found entity 1: Add32bit
+Info (12021): Found 1 design units, including 1 entities, in source file addpc.v
+    Info (12023): Found entity 1: AddPC
+Info (12021): Found 1 design units, including 1 entities, in source file imem.v
+    Info (12023): Found entity 1: IMEM
+Info (12127): Elaborating entity "MIPS" for the top level hierarchy
+Info (12128): Elaborating entity "DataPath" for hierarchy "DataPath:data"
+Info (12128): Elaborating entity "IMEM" for hierarchy "DataPath:data|IMEM:im"
+Warning (10850): Verilog HDL warning at IMEM.v(8): number of words (8) in memory file does not match the number of elements in the address range [0:31]
+Warning (10030): Net "rom.data_a" at IMEM.v(5) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "rom.waddr_a" at IMEM.v(5) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "rom.we_a" at IMEM.v(5) has no driver or initial value, using a default initial value '0'
+Info (12128): Elaborating entity "AddPC" for hierarchy "DataPath:data|AddPC:add1"
+Info (12128): Elaborating entity "Shift2" for hierarchy "DataPath:data|Shift2:shileft2"
+Info (12128): Elaborating entity "Add32bit" for hierarchy "DataPath:data|Add32bit:add2"
+Info (12128): Elaborating entity "Mux2_1_32bit" for hierarchy "DataPath:data|Mux2_1_32bit:muxPC"
+Info (12128): Elaborating entity "PC" for hierarchy "DataPath:data|PC:pc1"
+Info (12128): Elaborating entity "Mux2_1_5bit" for hierarchy "DataPath:data|Mux2_1_5bit:mux1"
+Info (12128): Elaborating entity "RegFile" for hierarchy "DataPath:data|RegFile:REGF"
+Info (12128): Elaborating entity "SignEx" for hierarchy "DataPath:data|SignEx:sign"
+Info (12128): Elaborating entity "ALU" for hierarchy "DataPath:data|ALU:alu"
+Info (12128): Elaborating entity "DMem" for hierarchy "DataPath:data|DMem:mem"
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:controller"
+Warning (10270): Verilog HDL Case Statement warning at ControlUnit.v(21): incomplete case statement has no default case item
+Warning (10235): Verilog HDL Always Construct warning at ControlUnit.v(52): variable "control" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at ControlUnit.v(14): inferring latch(es) for variable "ALUControl", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "ALUControl[0]" at ControlUnit.v(14)
+Info (10041): Inferred latch for "ALUControl[1]" at ControlUnit.v(14)
+Info (10041): Inferred latch for "ALUControl[2]" at ControlUnit.v(14)
+Warning (276027): Inferred dual-clock RAM node "DataPath:data|DMem:mem|mem_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "DataPath:data|RegFile:REGF|file" is uninferred due to asynchronous read logic
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "E:/HDL/Lab5/TH5/db/MIPS.ram0_IMEM_257482.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "DataPath:data|DMem:mem|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (12130): Elaborated megafunction instantiation "DataPath:data|DMem:mem|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "DataPath:data|DMem:mem|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ikd1.tdf
+    Info (12023): Found entity 1: altsyncram_ikd1
+Warning (13012): Latch ControlUnit:controller|ALUControl[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DataPath:data|PC:pc1|PC[3]
+Warning (13012): Latch ControlUnit:controller|ALUControl[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DataPath:data|PC:pc1|PC[6]
+Warning (13012): Latch ControlUnit:controller|ALUControl[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DataPath:data|PC:pc1|PC[3]
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Input[1]" is stuck at GND
+    Warning (13410): Pin "Input[18]" is stuck at GND
+    Warning (13410): Pin "Input[20]" is stuck at GND
+    Warning (13410): Pin "Input[23]" is stuck at GND
+    Warning (13410): Pin "Input[24]" is stuck at GND
+    Warning (13410): Pin "Input[25]" is stuck at GND
+    Warning (13410): Pin "Input[30]" is stuck at GND
+    Warning (13410): Pin "PCin[0]" is stuck at GND
+    Warning (13410): Pin "PCin[1]" is stuck at GND
+Info (17049): 768 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file E:/HDL/Lab5/TH5/output_files/MIPS.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1082 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 235 output pins
+    Info (21061): Implemented 813 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 4618 megabytes
+    Info: Processing ended: Mon Dec 21 14:49:28 2020
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/HDL/Lab5/TH5/output_files/MIPS.map.smsg.
+
+

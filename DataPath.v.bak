@@ -1,0 +1,22 @@
+module DataPath(Input ,RegDst, RegWrite, ALUSrc, MemWrite, MemRead, MemToReg , ALUControl , Clk, ReadData1, ReadData2, REGOut, ALUOut);
+	input [31:0] Input;
+	input Clk,RegDst, RegWrite, ALUSrc, MemWrite, MemRead, MemToReg;
+	input [2:0] ALUControl;
+	output[31:0] ReadData1, ReadData2, REGOut, ALUOut;
+	wire [4:0] REGAddr;
+	wire [31:0] RegO1, RegO2, SignO, MuxOALU, ALUO, MemO, MuxOMem;
+	wire [2:0] ALUControl;
+	
+	Mux2_1_5bit mux1(.Out(REGAddr), .In1(Input[20:16]), .In2(Input[15:11]), .S(RegDst));
+	RegFile REGF(.Clk(Clk), .RegWrite(RegWrite), .WR(REGAddr), .WD(MuxOMem), .RR1(Input[25:21]), .RD1(RegO1), .RR2(Input[20:16]), .RD2(RegO2));
+	SignEx sign(.Out(SignO), .In(Input[15:0]));
+	Mux2_1_32bit mux2(.O(MuxOALU), .In1(RegO2), .In2(SignO), .S(ALUSrc));
+	ALU alu(.O(ALUO), .In1(RegO1), .In2(MuxOALU), .ALUControl(ALUControl));
+	DMem mem(.clk(Clk), .MemWrite(MemWrite), .MemRead(MemRead), .Addr(ALUO), .WD(RegO2), .RD(MemO));
+	Mux2_1_32bit mux3(.O(MuxOMem), .In1(MemO), .In2(ALUO), .S(MemToReg));
+	
+	assign ReadData1 = RegO1;
+	assign ReadData2 = RegO2;
+	assign REGOut = MuxOMem;
+	assign ALUOut = ALUO;
+endmodule

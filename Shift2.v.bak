@@ -1,0 +1,8 @@
+module Shift2(In , Shift);
+	input [31:0] In;
+	output[31:0] Shift;
+	
+	assign Shift = In << 2;
+endmodule
+	
+	

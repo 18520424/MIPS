@@ -1,0 +1,11 @@
+module MIPS( Clk, Input ,RegDst, RegWrite, ALUSrc, MemWrite, MemRead, MemToReg, ReadData1, ReadData2, ALUControl, REGOut,ALUOut);
+	input [31:0] Input;
+	input Clk;
+	output [2:0] ALUControl;
+	output[31:0]  ReadData1, ReadData2, REGOut, ALUOut;
+	output RegDst,RegWrite, ALUSrc, MemToReg , MemWrite, MemRead;
+
+	DataPath data(Input ,RegDst, RegWrite, ALUSrc, MemWrite, MemRead, MemToReg , ALUControl , Clk, ReadData1, ReadData2, REGOut, ALUOut);
+	ControlUnit controller(Input[31:26], Input[5:0], RegDst, MemRead, MemWrite, MemToReg, ALUControl, ALUSrc, RegWrite);
+
+endmodule 

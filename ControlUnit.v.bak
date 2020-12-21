@@ -1,0 +1,53 @@
+	module ControlUnit(Opcode,Func, RegDst, MemRead, MemWrite, MemToReg, ALUControl, ALUSrc, RegWrite);
+		input [5:0] Opcode;
+		input [5:0] Func;
+		output reg MemToReg;
+		output reg  MemWrite;
+		output reg  MemRead;
+		output reg  ALUSrc;
+		output reg  RegDst;
+		output reg  RegWrite;
+		output reg  [2:0] ALUControl;         
+               
+reg [5:0] temp;
+
+always @(*) begin 
+		
+
+    case (Opcode) 
+        6'b000000: begin                          // R-type
+                    temp <= 6'b100001;        
+
+                    case (Func)
+                    6'b100000: ALUControl <= 3'b101;    // ADD
+                    6'b100010: ALUControl <= 3'b110;    // SUB
+                    6'b100100: ALUControl <= 3'b001;    // AND
+                    6'b100101: ALUControl <= 3'b011;    // OR
+                    6'b100110: ALUControl <= 3'b010;    // XOR
+                endcase
+
+            end
+
+        6'b100011: begin                          // LW
+                        temp <= 6'b010111;     
+                        ALUControl <= 3'b101;
+                    end
+
+        6'b101011: begin                          // SW
+                         temp <= 6'bx01x10;      
+                         ALUControl <= 3'b101;
+                    end 
+						  
+        6'b001000: begin                          // ADDI
+                        temp <= 6'b000011;  
+                        ALUControl <= 3'b101; 
+                    end 
+
+        default:   temp <= 6'bxxxxxx;     		  // NOP
+    endcase
+   
+    {RegDst,MemRead,MemWrite,MemToReg,ALUSrc,RegWrite} = temp;
+	 
+end
+
+endmodule 
